@@ -85,7 +85,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<!-- 用注解的方式支持事物管理 -->
+	<!-- 用注解的方式支持事物管理   test test test-->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	
