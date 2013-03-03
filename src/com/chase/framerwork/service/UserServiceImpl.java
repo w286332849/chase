@@ -16,7 +16,6 @@ public class UserServiceImpl extends BaseServiceImpl<User, Serializable> impleme
 	private UserDao userDao;
 
 	public Pager findAll(Pager pager) {
-		
 		return userDao.findPager(pager);
 	}
 	

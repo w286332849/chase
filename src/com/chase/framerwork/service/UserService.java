@@ -9,5 +9,4 @@ public interface UserService extends BaseService<User, Serializable> {
 
 	Pager findAll(Pager pager);
 
-	
 }

@@ -266,15 +266,18 @@ public class BaseDaoImpl<T, PK extends Serializable> implements BaseDao<T, PK> {
 		return criteriaResultTotalCount;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<T> findByHql(String hql){
 		return getSession().createQuery(hql).list();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<T> findByHql(String hql,Object[] params){
 		return getSession().createQuery(hql).setParameterList(hql, params).list();
 	}
 	
-	public List<T> findByHql(String hql,Collection params){
+	@SuppressWarnings("unchecked")
+	public List<T> findByHql(String hql,Collection<?> params){
 		return getSession().createQuery(hql).setParameterList(hql, params).list();
 	}
 	

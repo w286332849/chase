@@ -21,7 +21,8 @@ import com.sun.org.apache.commons.beanutils.BeanUtils;
 			@Result(name = "add", location = "/add.jsp"),
 			@Result(name = "delete", location = "/delete.jsp"),
 			@Result(name = "userList", location = "/userList.jsp"),
-			@Result(name = "load", location = "/load.jsp")
+			@Result(name = "load", location = "/load.jsp"),
+			@Result(name = "testTx", location = "/textTx.jsp")
 })
 public class UserAction extends BaseAction
 {
@@ -38,6 +39,7 @@ public class UserAction extends BaseAction
 	private User user;
 	
 	private UserVo userVo = new UserVo();
+	private UserVo userVo2 = new UserVo();
 	
 	// 验证
 //	@InputConfig(resultName = "error") // 验证失败之后 跳转到的result
@@ -88,6 +90,16 @@ public class UserAction extends BaseAction
 //			}
 //	)
 	
+	public UserVo getUserVo2() {
+		return userVo2;
+	}
+
+
+	public void setUserVo2(UserVo userVo2) {
+		this.userVo2 = userVo2;
+	}
+
+
 	public String add() throws Exception {
 		JSONObject json = new JSONObject();
 		try{
@@ -147,6 +159,7 @@ public class UserAction extends BaseAction
 		
 		return "load";
 	}
+	
 	
 	public String userList() throws Exception {
 		
