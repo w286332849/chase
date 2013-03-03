@@ -19,6 +19,16 @@
 		<param-value>classpath:applicationContext*.xml</param-value>
 	</context-param>	
 	
+	<!-- hibernate 保留Session到视图 -->
+	<filter>
+		<filter-name>openSessionInView</filter-name>
+		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>openSessionInView</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
   <!-- Struts2过滤器 -->
   <filter>
 	<filter-name>struts2</filter-name>
@@ -33,16 +43,6 @@
 	<dispatcher>REQUEST</dispatcher>
 	<dispatcher>FORWARD</dispatcher>
   </filter-mapping>
-
-	<!-- Hibernate 保留Session到视图 -->
-	<filter>
-		<filter-name>openSessionInView</filter-name>
-		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>openSessionInView</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
 
 	<!-- 字符编码过滤器 -->
 	<filter>
