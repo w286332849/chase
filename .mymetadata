@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ChaseFramework"
+  id="myeclipse.1358607824394"
+  context-root="/ChaseFramework"
+  j2ee-spec="5.0"
+  archive="ChaseFramework.war">
+  <attributes>
+    <attribute name="webrootdir" value="/WebRoot" />
+  </attributes>
+</project-module>
+

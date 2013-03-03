@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+	<constant name="struts.objectFactory" value="spring" />
+	
+	<!-- 所有Action的package都必须继承至chase-struts -->
+	<package name="chase-struts" namespace="/" extends="struts-default">
+		
+		<!-- 拦截器配置 -->
+		<interceptors>
+			<!-- 定义调试信息拦截器 -->
+			<interceptor name="debugLoggerInterceptor" class="com.chase.framerwork.interceptor.DebugLoggerInterceptor"/>
+			<interceptor name="trimInterceptor" class="com.chase.framerwork.interceptor.TrimInterceptor"/>
+			
+			<!-- 定义拦截器栈 -->
+			<interceptor-stack name="chase-interceptor">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="debugLoggerInterceptor"/>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 默认执行chase-interceptor拦截器 -->
+		<default-interceptor-ref name="chase-interceptor"/>
+				
+		<!-- 找不到action的情况下会去找index-front的Action -->
+        <default-action-ref name="index-front" />
+		
+		<!-- 全局result -->
+        <global-results>
+            <result name="error">/framework/error.jsp</result>
+        </global-results>
+		
+		<!-- 全局异常,声明式异常处理 -->
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+		
+		<!-- 默认Action -->
+		<action name="index-front">
+            <result type="redirect">/framework/login.jsp</result>
+        </action>       
+     </package>
+	
+    <!-- Add packages here -->
+
+</struts>
