@@ -20,7 +20,8 @@ import com.sun.org.apache.commons.beanutils.BeanUtils;
 @Action(value = "user", results = {
 			@Result(name = "add", location = "/add.jsp"),
 			@Result(name = "delete", location = "/delete.jsp"),
-			@Result(name = "userList", location = "/userList.jsp")
+			@Result(name = "userList", location = "/userList.jsp"),
+			@Result(name = "load", location = "/load.jsp")
 })
 public class UserAction extends BaseAction
 {
@@ -140,6 +141,12 @@ public class UserAction extends BaseAction
 		return UPDATE;
 	}
 	
+	public String loadUser() throws Exception {
+		
+		user = userService.load(userVo.getId());
+		
+		return "load";
+	}
 	
 	public String userList() throws Exception {
 		
