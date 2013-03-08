@@ -21,12 +21,10 @@ public class UserDaoImpl extends BaseDaoImpl<User, Serializable> implements
 
 		String hql = " from User u where u.username = :username and u.password = :password";
 
-//		Query query = getSession().createQuery(hql).setParameter("username",
-//				username).setParameter("password", password);
+		Query query = getSession().createQuery(hql).setParameter("username",
+				username).setParameter("password", password);
 		
-		List<User> list = findByHql(hql, new Object[]{username,password});
-		
-		//List<User> list = query.list();
+		List<User> list = query.list();
 
 		if (list != null && !list.isEmpty()) {
 			return list.get(0);

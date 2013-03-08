@@ -13,7 +13,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/ognl-3.0.6.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts2-convention-plugin-2.3.8.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts2-core-2.3.8.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xwork-core-2.3.8.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xwork-core-2.3.8.jar" sourcepath="D:/源代码/struts-2.3.8/struts-2.3.8-all/struts-2.3.8/src"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/antlr-2.7.7.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate-commons-annotations-4.0.1.Final.jar"/>

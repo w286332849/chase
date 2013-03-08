@@ -29,26 +29,26 @@ SSH框架集成搭建
 		
 			                                 
 Struts-Jar包准备:
-	struts2-core-2.3.8.jar					核心包
-	xwork-core-2.3.8.jar					核心包:xwork核心
-	ognl-3.0.6.jar							核心包:用于支持ognl表达式
-	freemarker-2.3.19.jar     			   	 核心包:用于支持freemarker
-	javassist-3.11.0.GA.jar   			   	 核心包:用于字节码处理(包冲突,使用Hibernate的javassist-3.17.1-GA.jar)
+	struts2-core-2.3.8.jar		核心包
+	xwork-core-2.3.8.jar		核心包:xwork核心
+	ognl-3.0.6.jar			核心包:用于支持ognl表达式
+	freemarker-2.3.19.jar     	核心包:用于支持freemarker
+	javassist-3.11.0.GA.jar   	核心包:用于字节码处理(包冲突,使用Hibernate的javassist-3.17.1-GA.jar)
 	
 	struts2-convention-plugin-2.3.8.jar   	扩展包: 支持注解
 	asm-3.3.jar                          	扩展包: 使用注解时加入
 	asm-commons-3.3.jar                  	扩展包: 使用注解时加入
 	struts2-spring-plugin-2.3.8.jar       	扩展包: 支持Spring管理Struts,与Spring整合时使用
 	
-	commons-fileupload-1.2.2.jar   		  	公用组件:用于支持文件上传
+	commons-fileupload-1.2.2.jar   		公用组件:用于支持文件上传
 	commons-io-2.0.1.jar                  	公用组件:常用IO封装
 	commons-lang3-3.1.jar                 	公用组件:常用工具封装
 	
 Hibernate-Jar包准备:
-	hibernate-core-4.1.9.Final.jar   	    	            核心包
-	antlr-2.7.7.jar    	                     	            核心包:语法分析器
-	dom4j-1.6.1.jar								            核心包:DOM4J解析配置文件
-	javassist-3.17.1-GA.jar   			 	 	             核心包:用于字节码处理
+	hibernate-core-4.1.9.Final.jar   	         核心包
+	antlr-2.7.7.jar    	                         核心包:语法分析器
+	dom4j-1.6.1.jar					 核心包:DOM4J解析配置文件
+	javassist-3.17.1-GA.jar   			 核心包:用于字节码处理
 	jboss-transaction-api_1.1_spec-1.0.0.Final.jar   核心包:支持事务处理
 	jboss-logging-3.1.0.GA.jar                       核心包:支持日志
 	hibernate-commons-annotations-4.0.1.Final.jar    核心包：支持注解
@@ -56,10 +56,10 @@ Hibernate-Jar包准备:
 
           
 Spring-Jar包准备:
-	spring-core-3.2.0.RELEASE.jar				 核心包
-	spring-context-3.2.0.RELEASE.jar			 核心包:上下文
+	spring-core-3.2.0.RELEASE.jar			核心包
+	spring-context-3.2.0.RELEASE.jar		核心包:上下文
 	spring-context-support-3.2.0.RELEASE.jar	核心包:支持上下文
-	spring-beans-3.2.0.RELEASE.jar				核心包:支持创建Bean
+	spring-beans-3.2.0.RELEASE.jar			核心包:支持创建Bean
 	spring-expression-3.2.0.RELEASE.jar   		核心包:支持Spring表达式
 	commons-logging-1.1.1.jar             		核心包:支持日志
 	
@@ -67,9 +67,9 @@ Spring-Jar包准备:
 	spring-aop-3.2.0.RELEASE.jar          		扩展包:支持AOP
 	spring-aspects-3.2.0.RELEASE.jar      		扩展包:支持Aspects-J面向切面语法
 	spring-tx-3.2.0.RELEASE.jar           		扩展包:支持声明式事物
-    aspectjweaver.jar                     		扩展包:支持Aspects
+	aspectjweaver.jar                     		扩展包:支持Aspects
 	aopalliance-1.0.jar                   		扩展包:支持AOP
-	spring-test-3.2.0.RELEASE.jar				扩展包:支持Junit4单元测试
+	spring-test-3.2.0.RELEASE.jar			扩展包:支持Junit4单元测试
     		
     		
 数据库包准备：
@@ -79,8 +79,8 @@ Spring-Jar包准备:
         	
         
 Log4j2-Jar包准备:
-	log4j-core-2.0-beta3.jar 				核心包
-	log4j-api-2.0-beta3.jar					核心包:API
+	log4j-core-2.0-beta3.jar 		核心包
+	log4j-api-2.0-beta3.jar			核心包:API
        		
        
 Json-lib包:		
@@ -97,10 +97,15 @@ Json-lib包:
 	jQuery 1.8.0      		
        		 	 
        		 	 
-测试情况
+
 	(2013-3-3)
-	1.OpenSessionInView	成功
-	2.事务控制	 成功
-	3.EntityInterceptor	成功
+	测试了如下拦截器
+	1.OpenSessionInView		成功
+	2.事务控制			成功
+	3.EntityInterceptor		成功
 	4.DebugLoggerInterceptor	成功
-	5.TrimInterceptor	失败
+	5.TrimInterceptor		成功
+	
+	(2013-3-8)
+	1.新增了paramsNgInterceptor拦截器 ,属性驱动拦截器的加强版.
+	

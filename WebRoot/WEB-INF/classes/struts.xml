@@ -16,11 +16,14 @@
 			<!-- 定义调试信息拦截器 -->
 			<interceptor name="debugLoggerInterceptor" class="com.chase.framerwork.interceptor.DebugLoggerInterceptor"/>
 			<interceptor name="trimInterceptor" class="com.chase.framerwork.interceptor.TrimInterceptor"/>
+			<interceptor name="paramsNgInterceptor" class="com.chase.framerwork.interceptor.ParametersNgInterceptor"/>
 			
 			<!-- 定义拦截器栈 -->
 			<interceptor-stack name="chase-interceptor">
 				<interceptor-ref name="defaultStack"/>
 				<interceptor-ref name="debugLoggerInterceptor"/>
+				<interceptor-ref name="trimInterceptor"/>
+				<interceptor-ref name="paramsNgInterceptor"/>
 			</interceptor-stack>
 		</interceptors>
 		

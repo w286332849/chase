@@ -7,6 +7,7 @@ import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.interceptor.validation.SkipValidation;
+import org.springframework.context.annotation.Scope;
 
 import com.chase.framerwork.common.ResponseCode;
 import com.chase.framerwork.entity.User;
@@ -21,6 +22,7 @@ import com.opensymphony.xwork2.validator.annotations.Validations;
 @Action(value = "login", results = {
 		@Result(name = "success", location = "/framework/main.jsp"),
 		@Result(name = "login", location = "/framework/login.jsp") })
+@Scope("prototype")
 public class LoginAction extends BaseAction {
 
 	/**
@@ -46,7 +48,6 @@ public class LoginAction extends BaseAction {
 
 		User user = loginService.loadUser(username, password);
 		if (user != null) {
-			
 			setSession("user", user);
 			
 			setResponseCode(ResponseCode.LOGIN_001);

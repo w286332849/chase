@@ -8,6 +8,7 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
+import org.springframework.context.annotation.Scope;
 
 import com.chase.framerwork.bean.Pager;
 import com.chase.framerwork.entity.User;
@@ -24,6 +25,7 @@ import com.sun.org.apache.commons.beanutils.BeanUtils;
 			@Result(name = "load", location = "/load.jsp"),
 			@Result(name = "testTx", location = "/textTx.jsp")
 })
+@Scope("prototype")
 public class UserAction extends BaseAction
 {
 	
