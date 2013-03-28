@@ -1,4 +1,4 @@
-Chase框架
+Chase框架 V1.0
 
 2013-3-3
 	【测试】1.OpenSessionInView		【结果】成功
@@ -12,5 +12,8 @@ Chase框架
 	【测试】2.paramsNgInterceptor拦截器 【结果】成功
 	
 2013-3-29
-	【使用】1.zTree控件展示树形菜单.
+	【新增】1.zTree控件展示树形菜单.
 	【新增】2.菜单管理CRUD操作.
+	【新增】4.新增了菜单功能(使用zTree控件)
+	【新增】5.加入了大部分注释
+	【重构】6.提取BaseAction的部分常量到ActionConstants常量接口中.
