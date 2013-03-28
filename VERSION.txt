@@ -1,0 +1,16 @@
+Chase框架
+
+2013-3-3
+	【测试】1.OpenSessionInView		【结果】成功
+	【测试】2.事务控制				【结果】成功
+	【测试】3.EntityInterceptor		【结果】成功
+	【测试】4.DebugLoggerInterceptor	【结果】成功
+	【测试】5.TrimInterceptor		【结果】成功
+	
+2013-3-8
+	【新增】1.paramsNgInterceptor拦截器 ,属性驱动拦截器的加强版.
+	【测试】2.paramsNgInterceptor拦截器 【结果】成功
+	
+2013-3-29
+	【使用】1.zTree控件展示树形菜单.
+	【新增】2.菜单管理CRUD操作.
