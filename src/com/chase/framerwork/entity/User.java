@@ -3,20 +3,22 @@ package com.chase.framerwork.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 
 /**
- * 用户实体
+ * 用户Entity
  * @author Chase
  *
  */
-@Entity
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class User  extends BaseEntity implements Serializable {
+@Entity
+@Table(name="SYS_USER")
+public class User extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 738083585258403211L;
 	

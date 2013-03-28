@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * Util - Cookie
+ * 操作Cookie工具类
+ * @author Chase
+ *
  */
 public final class CookieUtil {
 

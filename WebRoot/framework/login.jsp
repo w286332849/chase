@@ -8,7 +8,6 @@
 	.body{
 		background-image: url('${path}/source/image/background.png')
 	}
-	
 	.login {
 	    margin-left: 430px;
 	    margin-top: 200px;
@@ -41,32 +40,32 @@
 	</div>
   </body>
   <script type="text/javascript">
-  	$(function(){
-  		var responseCode = "${responseCode}";
-  		if(responseCode != ""){
-  			switch(responseCode){
-  				case "LOGIN_002" :
-  					$.messager.alert('提示','用户名或者密码错误','error');
-  				break;
-  				case "LOGIN_003" :
-  					$.messager.alert('提示','用户已失效','error');
-  				break;
-  				case "LOGIN_004" :
-  					$.messager.alert('提示','验证码错误','error');
-  				break;
-  				default:
-  					$.messager.alert('提示','未知错误','error');
-  				break;
-  			}
-  		}
-  	});
-  	
- 	 function clearForm(){
-		$('#loginForm').form('clear');
-	 }
-	 
-	 function submitForm(){
-	 	$('#loginForm').submit();
-	 }
+  		$(function(){
+			var responseCode = "${responseCode}";
+			if(responseCode != ""){
+				switch(responseCode){
+					case "LOGIN_002" :
+						$.messager.alert('提示','用户名或者密码错误','error');
+					break;
+					case "LOGIN_003" :
+						$.messager.alert('提示','用户已失效','error');
+					break;
+					case "LOGIN_004" :
+						$.messager.alert('提示','验证码错误','error');
+					break;
+					default:
+						$.messager.alert('提示','未知错误','error');
+					break;
+				}
+			}
+		});
+		
+		function clearForm() {
+		    $('#loginForm').form('clear');
+		}
+		
+		function submitForm() {
+			$('#loginForm').submit();
+		}
   </script>
 </html>

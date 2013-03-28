@@ -8,9 +8,10 @@ import java.lang.reflect.Method;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 工具类 - 反射
+ * 反射工具类
+ * @author Administrator
+ *
  */
-
 public class ReflectionUtil {
 	
 	/**

@@ -16,6 +16,11 @@ import com.chase.framerwork.service.UserService;
 import com.chase.framerwork.vo.UserVo;
 import com.sun.org.apache.commons.beanutils.BeanUtils;
 
+/**
+ * 用户操作Action
+ * @author Chase
+ *
+ */
 @ParentPackage("chase-struts")
 @Namespace("/user")
 @Action(value = "user", results = {
@@ -148,7 +153,7 @@ public class UserAction extends BaseAction
 	public String update() throws Exception {
 		
 		User user = new User();
-		user.setId("123456");
+		user.setId(1L);
 		
 		userService.update(user);
 		

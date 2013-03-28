@@ -10,7 +10,7 @@
 							http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd                    
 							http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd                    
 							http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd"
-		default-autowire="byType">
+		default-autowire="byName">
 
 	<!-- 支持注解作为配置 -->
 	<context:annotation-config />

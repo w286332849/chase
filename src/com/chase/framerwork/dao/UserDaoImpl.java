@@ -10,7 +10,12 @@ import org.springframework.util.Assert;
 import com.chase.framerwork.entity.User;
 import com.chase.framerwork.exception.SystemException;
 
-@Repository
+/**
+ * 用户Dao实现
+ * @author Administrator
+ *
+ */
+@Repository("userDaoImpl")
 public class UserDaoImpl extends BaseDaoImpl<User, Serializable> implements
 		UserDao {
 

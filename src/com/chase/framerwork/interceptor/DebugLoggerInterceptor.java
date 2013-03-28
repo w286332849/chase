@@ -8,10 +8,9 @@ import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
 /**
- * 一般调试信息拦截器
- * author：  Chase ↗
- * desc:
- * date： Mar 18, 201211:23:29 AM
+ * 拦截器 - 调试信息,日志
+ * author：  Chase
+ * 
  */
 public class DebugLoggerInterceptor extends AbstractInterceptor {
 	

@@ -95,17 +95,7 @@ Json-lib包:
 前端框架:
 	jQuery EasyUI 1.3.2
 	jQuery 1.8.0      		
-       		 	 
-       		 	 
 
-	(2013-3-3)
-	测试了如下拦截器
-	1.OpenSessionInView		成功
-	2.事务控制			成功
-	3.EntityInterceptor		成功
-	4.DebugLoggerInterceptor	成功
-	5.TrimInterceptor		成功
-	
-	(2013-3-8)
-	1.新增了paramsNgInterceptor拦截器 ,属性驱动拦截器的加强版.
-	
+
+控件:
+	1.zTree控件3.5.12

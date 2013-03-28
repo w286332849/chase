@@ -10,7 +10,7 @@ import org.hibernate.criterion.Order;
 import com.chase.framerwork.bean.Pager;
 
 /**
- * Service接口 - Service接口基类
+ * Service层接口
  */
 
 public interface BaseService<T, PK extends Serializable> {

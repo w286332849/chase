@@ -40,6 +40,7 @@ public class EncodingConvertFilter implements Filter {
 	@SuppressWarnings("unchecked")
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
+		
 		if (request.getMethod().equalsIgnoreCase("GET")) {
 			
 			Iterator<String[]> iterator = request.getParameterMap().values().iterator();

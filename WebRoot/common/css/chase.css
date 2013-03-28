@@ -1,11 +1,12 @@
 @CHARSET "UTF-8";
 
 *{
-	font-size:12px;
+	font-size:11px;
 }
+
 body {
-    font-family:helvetica,tahoma,verdana,sans-serif;
-    font-size:13px;
+    font-family:"微软雅黑" "黑体" "新宋体",helvetica,tahoma,verdana,sans-serif;
+    font-size:11px;
     margin:0;
 }
 
@@ -15,17 +16,23 @@ h2 {
     margin:0;
     margin-bottom:15px;
 }
+
 .chase-info{
 	background:#FFFEE6;
 	color:#8F5700;
 	padding:12px;
 }
+
 .chase-tip{
 	width:16px;
 	height:16px;
 	margin-right:8px;
 	float:left;
 }
+
 .blank{
-	
+	width: 100%;
+	height: 10px;
+	clear: both;
+	overflow: hidden;
 }

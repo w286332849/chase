@@ -1,7 +1,7 @@
 package com.chase.framerwork.common;
 
 /**
- * 响应码
+ * 请求响应码
  * @author Chase
  *
  */

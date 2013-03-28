@@ -14,10 +14,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.ValidationAware;
 import com.opensymphony.xwork2.XWorkConstants;
-import com.opensymphony.xwork2.conversion.impl.InstantiatingNullHandler;
-import com.opensymphony.xwork2.conversion.impl.XWorkConverter;
 import com.opensymphony.xwork2.inject.Inject;
-import com.opensymphony.xwork2.interceptor.DefaultWorkflowInterceptor;
 import com.opensymphony.xwork2.interceptor.MethodFilterInterceptor;
 import com.opensymphony.xwork2.interceptor.NoParameters;
 import com.opensymphony.xwork2.interceptor.ParameterNameAware;
@@ -33,13 +30,18 @@ import com.opensymphony.xwork2.util.logging.LoggerFactory;
 import com.opensymphony.xwork2.util.reflection.ReflectionContextState;
 
 /**
- * 下一代属性驱动拦截器
+ * 拦截器 - 新一代属性驱动拦截器,利用Struts2属性驱动也可以去除页面两端的字符串
  * @author Chase
  *
  */
 public class ParametersNgInterceptor extends MethodFilterInterceptor {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ParametersNgInterceptor.class);
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 7691108365060859783L;
+
+	private static final Logger LOG = LoggerFactory.getLogger(ParametersNgInterceptor.class);
 
     protected static final int PARAM_NAME_MAX_LENGTH = 100;
 

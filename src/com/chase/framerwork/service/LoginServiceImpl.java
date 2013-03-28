@@ -1,5 +1,7 @@
 package com.chase.framerwork.service;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.chase.framerwork.dao.UserDao;
@@ -7,12 +9,10 @@ import com.chase.framerwork.entity.User;
 import com.chase.framerwork.exception.SystemException;
 
 /**
- * 系统登陆Service
- * 
- * @author Administrator
+ * 登陆Service实现
+ * @author Chase
  * 
  */
-
 @Service
 public class LoginServiceImpl extends BaseServiceImpl<User, String> implements
 		LoginService {
@@ -49,7 +49,8 @@ public class LoginServiceImpl extends BaseServiceImpl<User, String> implements
 	public UserDao getUserDao() {
 		return userDao;
 	}
-
+	
+	@Resource
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
 	}

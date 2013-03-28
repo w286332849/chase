@@ -13,9 +13,12 @@ import com.chase.framerwork.bean.Pager;
 import com.chase.framerwork.dao.BaseDao;
 
 /**
- * Service实现类 - Service实现类基类
+ * Service层最父类,所有Service都必须继承自该父类
+ * @author Chase
+ *
+ * @param <T> Entity
+ * @param <PK> ID
  */
-
 @Transactional
 public class BaseServiceImpl<T, PK extends Serializable> implements BaseService<T, PK> {
 

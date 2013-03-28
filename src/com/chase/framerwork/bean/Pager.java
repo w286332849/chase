@@ -3,12 +3,13 @@ package com.chase.framerwork.bean;
 import java.util.List;
 
 /**
- * Bean类 - 分页
+ * 分页Bean
+ * @author Chase
+ *
  */
-
 public class Pager {
 
-	public static final Integer MAX_PAGE_SIZE = 500;// 每页最大记录数限制
+	public static final Integer MAX_PAGE_SIZE = 50;// 每页最大记录数限制
 	
 	// 排序方式（递增、递减）
 	public enum Order {

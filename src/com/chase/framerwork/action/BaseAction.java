@@ -17,54 +17,22 @@ import com.chase.framerwork.util.CookieUtil;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class BaseAction extends ActionSupport {
+/**
+ * Action层最父类,所有Action都必须继承自该父类
+ * @author Chase
+ *
+ */
+public abstract class BaseAction extends ActionSupport implements ActionConstants {
 
 	private static final long serialVersionUID = -5406156774433594044L;
 
 	protected static final String STATUS = "status";// 操作状态
 	protected static final String MESSAGE = "message";// 操作消息
 	
-	protected static final String ADD_INPUT = "addInput";
-	protected static final String EDIT_INPUT = "editInput";
-	protected static final String REMOVE_INPUT = "removeInput";
-	protected static final String FIND_INPUT = "findInput";
-	
-	protected static final String ADD = "add";
-	protected static final String CREATE = "create";
-	protected static final String NEW = "new";
-	
-	protected static final String UPDATE = "update";
-	protected static final String MARGRE = "update";
-	protected static final String EDIT = "edit";
-	
-	protected static final String DELETE = "delete";
-	protected static final String REMOVE = "remove";
-	
-	protected static final String FIND = "find";
-	protected static final String FIND_ALL = "findAll";
-	protected static final String FIND_BY_ID = "findById";
-	protected static final String FIND_BY_LIKE = "findByLike";
-	protected static final String FIND_BY_NAME = "findByName";
-	
-	protected static final String LIST = "list";
-	protected static final String ITERATOR = "iterator";
-	
-	protected static final String LOAD = "load";
-	protected static final String LOAD_BY_ID = "loadById";
-	protected static final String LOAD_BY_LIKE = "loadByLike";
-	protected static final String LOAD_BY_NAME = "loadByName";
-	
-	protected static final String SEARCH = "search";
-	
 	protected static final String AJAX = "ajax";
 	
 	protected static final String ROWS = "rows";
 	protected static final String TOTAL = "total";
-	
-	// 查询方法
-	protected enum QUERY_METHOD {
-		findAll,findById,findByLike,findByName,findBy
-	}
 	
 	// 响应码
 	private ResponseCode responseCode;
@@ -174,9 +142,11 @@ public class BaseAction extends ActionSupport {
 		
 		outJSON(json);
 	}
-
+	
+	// 直接输出JSONObject
 	protected void outJSON(JSONObject json) throws IOException {
-		getResponse().getWriter().print(json.toString());
+		getResponse().setCharacterEncoding("UTF-8");
+		getResponse().getWriter().write(json.toString());
 	}
 	
 	// 设置响应码

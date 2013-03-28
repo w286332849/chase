@@ -27,12 +27,11 @@
 </head>
 <body>
 	<div style="padding:5px">  
-		 <table id="dg" class="easyui-datagrid" style="height:450px" 
-	            url="${path}/user/user!userList.action"  
-	            toolbar="#toolbar" pagination="true"  
-	            rownumbers="true" fitColumns="true" singleSelect="true">  
+		 <table id="dg" class="easyui-datagrid" style="height:450px" url="${path}/user/user!userList.action"  
+	            toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true">  
 	          <thead>  
-	              <tr>  
+	              <tr>
+	              	  <th data-options="field:'id',hidden:'true'">ID</th>    
 	                  <th data-options="field:'username'" width="200">UserName</th>  
 	                  <th data-options="field:'password'" width="100">Password</th>  
 	                  <th data-options="field:'status'" width="100" sortable="true">Status</th>  
@@ -47,11 +46,10 @@
 	    </div>  
      </div>
      
-     
      <div id="dlg" class="easyui-dialog" style="width:500px;height:300px;padding:10px 20px"  
             closed="true" buttons="#dlg-buttons" title="This is the tooltip message."> 
         <div class="ftitle">User Information</div>       
-        <form id="fm" method="post">  
+        <form id="fm" method="post" novalidate>  
             <div class="fitem">  
                 <label>UserName:</label>  
                 <input type="text" name="userVo.username" class="easyui-validatebox" required="true">  
@@ -78,16 +76,23 @@
     <div id="dlg-buttons">  
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-save" onclick="saveUser()">Save</a>  
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>  
-    </div>  
-    
-    
+    </div>
 </body>  
   <script type="text/javascript">
   	
   	function newUser() {
   		$('#dlg').dialog('open').dialog('setTitle','New User');  
+  		$('#fm').form('clear');  
   	}
   	
+ 	function editUser(){  
+		var row = $('#dg').datagrid('getSelected');  
+        if (row){  
+            $('#dlg').dialog('open').dialog('setTitle','Edit User');  
+            $('#fm').form('load',userDataFilter(row));
+        }  
+    }  
+    
   	function saveUser() {
   		$('#fm').form('submit',{  
           url: "${path}/user/user!add.action",  
@@ -127,6 +132,29 @@
                 }  
             });  
         }  
+  	}
+  	
+  	function userDataFilter(row) {
+  		if (row){  
+  			return {
+  				id:row.id,
+  				password:row.password,
+  				createDate:row.createDate.year+"-"+row.createDate.month+"-"+row.createDate.date,
+  				modifyDate:row.modifyDate.year+"-"+row.modifyDate.month+"-"+row.modifyDate.date,
+  				username:row.username,
+  				status:convterUserStatus(row.status)
+  			};
+  		}
+  	}
+  	
+  	function convterUserStatus(status){
+  		switch(status){
+  			case 1: return 'Normal';
+  			case 2: return 'Not Activated';
+  			case 3: return 'Locked';
+  			case 4: return 'Cancelled';
+  			default: return '';
+  		}
   	}
   </script>
 </html>

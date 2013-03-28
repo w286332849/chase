@@ -13,8 +13,9 @@ import com.chase.framerwork.util.ReflectionUtil;
 
 /**
  * 拦截器 - 自动填充创建日期、修改日期
+ * @author Chase
+ *
  */
-
 @Component
 public class EntityInterceptor extends EmptyInterceptor {
 

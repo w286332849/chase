@@ -10,7 +10,11 @@ import java.util.GregorianCalendar;
 
 import org.apache.commons.lang.StringUtils;
 
-
+/**
+ * 操作日期工具类
+ * @author Chase
+ *
+ */
 public class DateUtil {
 
 	/**

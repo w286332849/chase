@@ -1,7 +1,7 @@
 package com.chase.framerwork.exception;
 
 /**
- * 业务异常
+ * 业务Exception
  * @author Chase
  *
  */

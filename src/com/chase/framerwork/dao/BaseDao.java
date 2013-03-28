@@ -15,7 +15,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import com.chase.framerwork.bean.Pager;
 
 /**
- * Dao接口 - Dao基接口
+ * Dao层接口
  */
 public interface BaseDao<T, PK extends Serializable> {
 	

@@ -36,9 +36,12 @@ import com.chase.framerwork.entity.BaseEntity;
 import com.chase.framerwork.util.ReflectionUtil;
 
 /**
- * Dao实现类 - 基类
+ * Dao层最父类,所有Dao都必须继承自该父类
+ * @author Chase
+ *
+ * @param <T> Entity
+ * @param <PK> ID
  */
-
 public class BaseDaoImpl<T, PK extends Serializable> implements BaseDao<T, PK> {
 
 	private static final String ORDER_LIST_PROPERTY_NAME = "orderList";// "排序"属性名称
