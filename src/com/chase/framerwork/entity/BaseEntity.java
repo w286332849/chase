@@ -15,6 +15,8 @@ import lombok.Data;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.chase.framerwork.util.DateUtil;
+
 /**
  * Entity最父类,所有Entity都必须继承自该父类
  * @author Chase
@@ -103,5 +105,14 @@ public abstract class BaseEntity implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
+	
+	@Transient
+	public String getCreateDateStr(){
+		return DateUtil.getInstance().dateToString(createDate, DateUtil.patternA);
+	}
+	
+	@Transient
+	public String getModifyDateStr(){
+		return DateUtil.getInstance().dateToString(modifyDate, DateUtil.patternA);
+	}
 }

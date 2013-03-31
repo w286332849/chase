@@ -96,6 +96,7 @@ Json-lib包:
 	jQuery EasyUI 1.3.2
 	jQuery 1.8.0      		
 
+    Bootstrap
 
 控件:
 	1.zTree控件3.5.12

@@ -11,6 +11,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.context.annotation.Scope;
 
 import com.chase.framerwork.bean.Pager;
+import com.chase.framerwork.common.ResponseCode;
 import com.chase.framerwork.entity.User;
 import com.chase.framerwork.service.UserService;
 import com.chase.framerwork.vo.UserVo;
@@ -26,7 +27,7 @@ import com.sun.org.apache.commons.beanutils.BeanUtils;
 @Action(value = "user", results = {
 			@Result(name = "add", location = "/add.jsp"),
 			@Result(name = "delete", location = "/delete.jsp"),
-			@Result(name = "userList", location = "/userList.jsp"),
+			@Result(name = "userList", location = "/framework/user/userList.jsp"),
 			@Result(name = "load", location = "/load.jsp"),
 			@Result(name = "testTx", location = "/textTx.jsp")
 })
@@ -36,7 +37,6 @@ public class UserAction extends BaseAction
 	
 	private static final long serialVersionUID = 7228043685105009379L;
 	
-	@Resource
 	private UserService userService;
 	
 	private String name;
@@ -108,24 +108,19 @@ public class UserAction extends BaseAction
 
 
 	public String add() throws Exception {
-		JSONObject json = new JSONObject();
-		try{
-			if(userVo.getPassword().equals(userVo.getConfirmPassword())) {
-				User user = new User();
-				BeanUtils.copyProperties(user, userVo);
-				
-				userService.save(user);
-			} 
-			else {
-				json.put("errorMsg", "Enter two passwords do not match");
-			}
-		}catch (Exception e) {
-			json.put("errorMsg", e.getMessage());
+		if(userVo.getPassword().equals(userVo.getConfirmPassword())) {
+			
+			User user = new User();
+			BeanUtils.copyProperties(user, userVo);
+			userService.save(user);
+			
+			setResponseCode(ResponseCode.USER_SUCCESS_001);
+		} 
+		else {
+			setResponseCode(ResponseCode.USER_FAIL_007);
 		}
 		
-		outJSON(json);
-		
-		return null;
+		return userList();
 	}
 	
 	
@@ -146,7 +141,7 @@ public class UserAction extends BaseAction
 		
 		outJSON(json);
 		
-		return null;
+		return userList();
 	}
 	
 	//@SkipValidation
@@ -172,9 +167,9 @@ public class UserAction extends BaseAction
 		
 		pager = userService.findAll(pager);
 		
-		outJSONList(pager);
+		//outJSONList(pager);
 		
-		return null;
+		return "userList";
 	}
 
 	
@@ -189,7 +184,8 @@ public class UserAction extends BaseAction
 	public UserService getUserService() {
 		return userService;
 	}
-
+	
+	@Resource
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}

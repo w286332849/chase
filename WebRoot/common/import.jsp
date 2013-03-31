@@ -18,14 +18,44 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
 	<!-- CSS引用 -->
-	<link rel="stylesheet" type="text/css" href="${path}/common/easyui/themes/metro/easyui.css">
+	<link rel="stylesheet" type="text/css" href="${path}/common/easyui/themes/bootstrap/easyui.css">
 	<link rel="stylesheet" type="text/css" href="${path}/common/easyui/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="${path}/common/bootstrap/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" type="text/css" href="${path}/common/bootstrap/css/bootstrap-responsive.min.css"></link>
 	<link rel="stylesheet" type="text/css" href="${path}/common/css/chase.css">
+	<style type="text/css">
+		body {
+			font-family:"微软雅黑" "黑体" "新宋体",helvetica,tahoma,verdana,sans-serif;
+		    font-size:12px;
+		}
+		
+		.chase-info{
+			background:#FFFEE6;
+			color:#8F5700;
+			padding:12px;
+		}
+		
+		.chase-tip{
+			width:16px;
+			height:16px;
+			margin-right:8px;
+			float:left;
+		}
+		
+		.blank{
+			width: 100%;
+			height: 10px;
+			clear: both;
+			overflow: hidden;
+		}
+	</style>
 	
 	<!-- JS引用 -->
 	<script type="text/javascript" src="${path}/common/easyui/jquery-1.8.0.min.js"></script>
 	<script type="text/javascript" src="${path}/common/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="${path}/common/js/chase.js"></script>
 	<!-- <script type="text/javascript" src="${path}/common/easyui/easyui-lang-zh_CN.js"></script> -->
+	<script type="text/javascript" src="${path}/common/bootstrap/js/bootstrap.min.js"></script>
 	
 	<!-- zTree插件引用 -->
 	<link rel="stylesheet" type="text/css" href="${path}/source/ztree/css/zTreeStyle.css">
@@ -55,5 +85,6 @@
 		}
 	</script>
 	
+
 </head>
 </html>

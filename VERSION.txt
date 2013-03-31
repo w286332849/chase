@@ -17,3 +17,8 @@ Chase框架 V1.0
 	【新增】4.新增了菜单功能(使用zTree控件)
 	【新增】5.加入了大部分注释
 	【重构】6.提取BaseAction的部分常量到ActionConstants常量接口中.
+	
+2013-3-31
+	【新增】1.Bootstrap前段框架.
+	【修改】1.使用Bootstrap风格的控件代替部分EasyUI样式.
+	

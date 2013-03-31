@@ -23,14 +23,14 @@ $(function(){
 			
 			// 登陆成功提示
 			$.messager.show({  
-	            title:'提示',  
-	            msg:'登陆成功',  
+	            title:'info',  
+	            msg:'Login Success',  
 	            timeout:2000,  
 	            showType:'slide'  
 	        });
 		},
 		error:function(response){
-			alert("ajax 异常");
+			alert("Ajax Exception");
 		}
 	});
 })

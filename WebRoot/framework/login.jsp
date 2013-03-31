@@ -17,24 +17,24 @@
   
   <body class="body">
   	<div class="login">
-  	<div class="easyui-panel" title="登陆" style="width:400px">
+  	<div class="easyui-panel" title="Sign in" style="width:500px">
 		<div style="padding:10px 0 10px 60px">
 	    <form id="loginForm" method="post" name="loginForm" action="${path}/login/login!login.action">
-	    	<table style="margin: 20px;">
+	    	<table>
 	    		<tr>
-	    			<td>用户名:</td>
-	    			<td><input class="easyui-validatebox" type="text" name="username" data-options="required:true"></input></td>
+	    			<td width="35%"><h6>UserName:</h6></td>
+	    			<td width="65%"><input class="easyui-validatebox" type="text" name="username" data-options="required:true"></input></td>
 	    		</tr>
 	    		<tr>
-	    			<td>密码:</td>
+	    			<td><h6>Password:</h6></td>
 	    			<td><input class="easyui-validatebox" type="password" name="password" data-options="required:true"></input></td>
 	    		</tr>
 	    	</table>
 	    </form>
 	    </div>
-	    <div style="text-align:center;padding:5px">
-	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">Submit</a>
-	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a>
+	    <div style="text-align:center;padding:10px">
+	    	<a href="javascript:void(0)" class="btn btn-success" onclick="submitForm()">Submit</a>
+	    	<a href="javascript:void(0)" class="btn btn-danger" onclick="clearForm()">Clear</a>
 	    </div>
 	</div>
 	</div>

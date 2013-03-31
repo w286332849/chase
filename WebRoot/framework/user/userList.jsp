@@ -26,92 +26,165 @@
 	</style>
 </head>
 <body>
-	<div style="padding:5px">  
-		 <table id="dg" class="easyui-datagrid" style="height:450px" url="${path}/user/user!userList.action"  
-	            toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true">  
-	          <thead>  
-	              <tr>
-	              	  <th data-options="field:'id',hidden:'true'">ID</th>    
-	                  <th data-options="field:'username'" width="200">UserName</th>  
-	                  <th data-options="field:'password'" width="100">Password</th>  
-	                  <th data-options="field:'status'" width="100" sortable="true">Status</th>  
-	                  <th data-options="field:'createDate'" width="100" dateFormat="yyyy-MM-dd" sortable="true">Create Date</th>
-	              </tr>  
-	          </thead>  
-	      </table>
-	      <div id="toolbar">  
-	      	  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">New User</a>  
-	          <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>  
-	          <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeUser()">Delete User</a>  
+	<div style="padding:10px">  
+		<div id="toolbar">  
+	      	  <a href="javascript:void(0)" class="btn btn-small btn-primary" onclick="newUser(this)">New User</a>  
+	          <a href="javascript:void(0)" class="btn btn-small btn-primary" onclick="editUser(this)">Edit User</a>  
+	          <a href="javascript:void(0)" class="btn btn-small btn-primary" onclick="removeUser(this)">Delete User</a>  
 	    </div>  
+	    
+	    <div class="blank"></div>
+	    <div id="responseResult"></div>
+	    
+		<table class="table table-bordered table-hover">
+		    <thead>
+                <tr>
+                    <th class="popover-title">No.</th>
+                    <th class="popover-title">UserName</th>
+                    <th class="popover-title">Password</th>
+                    <th class="popover-title">Status</th>
+                    <th class="popover-title">Create Date</th>
+               </tr>
+             </thead>
+             <s:iterator value="pager.result" var="user" status="status">
+             	<tr>
+             		<td><s:property value="#status.index + 1"/></td>
+             		<td><s:property value="#user.username"/></td>
+             		<td><s:property value="#user.password"/></td>
+             		<td>
+             			<s:if test="#user.status == 1">
+             				Normal
+             			</s:if>
+             			<s:elseif test="#user.status == 2">
+             				Not Activated
+             			</s:elseif>
+             			<s:elseif test="#user.status == 3">
+             				Locked
+             			</s:elseif>
+             			<s:else>
+             				Cancelled
+             			</s:else>
+             		</td>
+             		<td><s:property value="#user.createDateStr"/></td>
+             	</tr>
+             </s:iterator>
+		</table>
      </div>
      
-     <div id="dlg" class="easyui-dialog" style="width:500px;height:300px;padding:10px 20px"  
+     <div id="dlg" class="easyui-dialog" style="width:500px;height:400px;padding:10px 20px"  
             closed="true" buttons="#dlg-buttons" title="This is the tooltip message."> 
         <div class="ftitle">User Information</div>       
-        <form id="fm" method="post" novalidate>  
-            <div class="fitem">  
-                <label>UserName:</label>  
-                <input type="text" name="userVo.username" class="easyui-validatebox" required="true">  
-            </div>  
-            <div class="fitem">  
-                <label>Password:</label>  
-                <input type="password" name="userVo.password" class="easyui-validatebox" required="true">  
-            </div>  
-            <div class="fitem">  
-                <label>Confirm Password:</label>  
-                <input type="password" name="userVo.confirmPassword" class="easyui-validatebox" required="true">  
-            </div>  
-            <div class="fitem">  
-                <label>User Status:</label>  
-                <select class="easyui-combobox" name="userVo.status" panelHeight='auto'>
-                	<option value="1" selected="selected">Normal</option>
-                	<option value="2">Not Activated</option>
-                	<option value="3">Locked</option>
-                	<option value="4">Cancelled</option>
-                </select> 
-            </div>  
+        <form id="fm" method="post">  
+        	<table>
+        		<tr>
+        			<td width="45%">
+        				<h6>UserName:</h6>
+        			</td>
+        			<td width="55%">
+        				<input type="text" name="userVo.username" class="easyui-validatebox" data-options="required:true">  
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				<h6>Password:</h6>
+        			</td>
+        			<td>
+        				<input type="password" name="userVo.password" class="easyui-validatebox" data-options="required:true">  
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				<h6>Confirm Password:</h6>
+        			</td>
+        			<td>
+        				<input type="password" name="userVo.confirmPassword" class="easyui-validatebox" data-options="required:true">  
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				<h6>User Status:</h6>
+        			</td>
+        			<td>
+        				 <select id="userVo_status" name="userVo.status">
+		                	<option value="1" selected="selected">Normal</option>
+		                	<option value="2">Not Activated</option>
+		                	<option value="3">Locked</option>
+		                	<option value="4">Cancelled</option>
+		                </select> 
+        			</td>
+        		</tr>
+        	</table>
         </form>  
     </div>  
     <div id="dlg-buttons">  
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-save" onclick="saveUser()">Save</a>  
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>  
+        <a href="javascript:void(0)" class="btn btn-success" onclick="saveUser()">Save</a>  
+        <a href="javascript:void(0)" class="btn btn-danger" onclick="clearForm()">Cancel</a>  
     </div>
 </body>  
   <script type="text/javascript">
+  	$(function(){
+  		new chase.ui.select('userVo_status',{size:'small'});
+  		
+  		var responseCode = "${responseCode}";
+		if(responseCode != ""){
+			switch(responseCode){
+				case "USER_SUCCESS_001" :
+					setResponseResult("#responseResult","alert  alert-success","用户注册成功!");
+				break;
+				case "USER_SUCCESS_002" :
+					setResponseResult("#responseResult","alert  alert-success","用户修改成功!");
+				break;
+				case "USER_SUCCESS_003" :
+					setResponseResult("#responseResult","alert  alert-success","用户删除成功!");
+				break;
+				case "USER_FAIL_004" :
+					setResponseResult("#responseResult","alert alert-error","用户注册失败!","用户名已经存在");
+				break;
+				case "USER_FAIL_005" :
+					setResponseResult("#responseResult","alert alert-error","用户修改失败!","用户名已经存在");
+				break;
+				case "USER_FAIL_006" :
+					setResponseResult("#responseResult","alert alert-error","用户删除失败!","该用户不存在");
+				break;
+				case "USER_FAIL_007" :
+					setResponseResult("#responseResult","alert alert-error","用户注册失败!","两次输入的密码不一致");
+				break;
+				default:
+					setResponseResult("#responseResult","alert alert-error","用户注册失败!","未知错误");
+				break;
+			}
+		}
+  	});
   	
-  	function newUser() {
-  		$('#dlg').dialog('open').dialog('setTitle','New User');  
-  		$('#fm').form('clear');  
+  	function setResponseResult(selector,addClass,title,message) {
+  		if(!message){
+  			message = "";
+  		}
+  		
+  		$("#responseResult").addClass(addClass)
+  		.html("<button type='button' class='close' data-dismiss='alert'>×</button><strong>"+ title +"</strong>" + message);
   	}
   	
- 	function editUser(){  
+  	function newUser(href) {
+  		$('#dlg').dialog('open').dialog('setTitle',$(href).text());  
+  	}
+  	
+ 	function editUser(href){  
 		var row = $('#dg').datagrid('getSelected');  
         if (row){  
-            $('#dlg').dialog('open').dialog('setTitle','Edit User');  
-            $('#fm').form('load',userDataFilter(row));
+            $('#dlg').dialog('open').dialog('setTitle',$(href).text());  
+            //$('#fm').form('load',userDataFilter(row));
         }  
     }  
     
+    function clearForm() {
+	    $('#fm').form('clear');
+	    $('#dlg').dialog('close');
+	}
+    
   	function saveUser() {
-  		$('#fm').form('submit',{  
-          url: "${path}/user/user!add.action",  
-          onSubmit: function(){  
-              return $(this).form('validate');  
-          },  
-          success: function(result){  
-              var result = eval('('+result+')');  
-              if (result.errorMsg){  
-                  $.messager.show({  
-                      title: 'Error',  
-                      msg: result.errorMsg  
-                  });  
-              } else {  
-                  $('#dlg').dialog('close');      // close the dialog  
-                  $('#dg').datagrid('reload');    // reload the user data  
-              }
-          }  
-      });  
+  		$('#fm').attr('action','${path}/user/user!add.action');
+  		$('#fm').submit();
   	}
   	
   	function removeUser() {
@@ -134,27 +207,5 @@
         }  
   	}
   	
-  	function userDataFilter(row) {
-  		if (row){  
-  			return {
-  				id:row.id,
-  				password:row.password,
-  				createDate:row.createDate.year+"-"+row.createDate.month+"-"+row.createDate.date,
-  				modifyDate:row.modifyDate.year+"-"+row.modifyDate.month+"-"+row.modifyDate.date,
-  				username:row.username,
-  				status:convterUserStatus(row.status)
-  			};
-  		}
-  	}
-  	
-  	function convterUserStatus(status){
-  		switch(status){
-  			case 1: return 'Normal';
-  			case 2: return 'Not Activated';
-  			case 3: return 'Locked';
-  			case 4: return 'Cancelled';
-  			default: return '';
-  		}
-  	}
   </script>
 </html>
